@@ -1,0 +1,64 @@
+[keyboard]
+name = "Klor"
+product_name = "Klor"
+vendor_id = 0x4c4b
+product_id = 0x4643
+manufacturer = "klor"
+chip = "nrf52840"
+usb_enable = true
+
+[layout]
+rows = 4
+cols = 10
+layers = 8
+keymap = [
+    [
+        ["Q", "W", "F", "P", "B", "J", "L", "U", "Y", ";"],
+        ["A", "R", "S", "T", "G", "M", "N", "E", "I", "O"],
+        ["Z", "X", "C", "D", "V", "K", "H", ",", ".", "/"],
+        ["MT(Tab, LGui)", "MT(Escape, LShift)", "LT(1, Space)", "No", "No", "No", "No", "LT(2, Backspace)", "MT(Enter, LCtrl)", "MT(Del, LAlt)"]
+    ],
+]
+
+[ble]
+enabled = true
+battery_adc_pin = "vddh"
+adc_divider_measured = 2000
+adc_divider_total = 2806
+
+[behavior.tap_hold]
+permissive_hold = true
+hold_timeout = "150ms"
+
+[storage]
+enabled = true
+start_addr = 0xA0000
+num_sectors = 32
+# clear_storage = true
+
+[split]
+connection = "ble"
+
+[split.central]
+rows = 4
+cols = 5
+row_offset = 0
+col_offset = 0
+# ble_addr = [0x1a, 0xe2, 0x21, 0x80, 0xcc, 0xc7]
+[split.central.matrix]
+input_pins = ["P0_24", "P1_00", "P0_11", "P1_04"]
+output_pins = ["P1_15", "P1_13", "P1_11", "P0_10", "P0_09"]
+
+[[split.peripheral]]
+rows = 4
+cols = 5
+row_offset = 0
+col_offset = 5
+# ble_addr = [0x1a, 0xe2, 0x21, 0x80, 0xcc, 0xc8]
+[split.peripheral.matrix]
+input_pins = ["P0_24", "P1_00", "P0_11", "P1_04"]
+output_pins = ["P0_09", "P0_10", "P1_11", "P1_13", "P1_15"]
+
+[rmk]
+ble_profiles_num = 10
+macro_space_size = 2048
