@@ -28,7 +28,7 @@ adc_divider_total = 2806
 
 [behavior.tap_hold]
 permissive_hold = true
-hold_timeout = "150ms"
+hold_timeout = "200ms"
 
 [storage]
 enabled = true
